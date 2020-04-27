@@ -25,18 +25,18 @@ namespace web_stream.Controllers
 
 
         [HttpPost]
-        public  IActionResult Post(Cliente cliente)
+        public async Task<IActionResult> PostAsync(Cliente cliente)
         {
             //Fazer o Insert
-            EnviarEvento(cliente, EventoEnum.Insert);
+            await EnviarEvento(cliente, EventoEnum.Insert);
             return Ok();
         }
 
         [HttpPut]
-        public  IActionResult PutAsync(Cliente cliente)
+        public async Task<IActionResult> PutAsync(Cliente cliente)
         {
             //Fazer o Update
-           EnviarEvento(cliente, EventoEnum.Update);
+            await EnviarEvento(cliente, EventoEnum.Update);
             return Ok();
         }
 
